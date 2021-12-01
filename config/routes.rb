@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   post 'authenticate', to: 'authentication#authenticate'
   get 'authenticate',to: 'application#current_user'
   resources :users
+  resources :favourites, only: [:create, :destroy]
 end
