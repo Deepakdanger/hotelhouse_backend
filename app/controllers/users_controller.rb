@@ -2,8 +2,7 @@ class UsersController < ApplicationController
     skip_before_action :authenticate_request, except: [:index]
 
     def index
-        user        
-        render json: @current_user
+        render json: current_user
     end
 
     def create
@@ -16,11 +15,4 @@ class UsersController < ApplicationController
             render json: { error: 'Not Created' }
         end
     end
-
-    private
-
-    def user
-        @current_user = AuthorizeApiRequest.call(request.headers).result.name
-    end
-
 end
