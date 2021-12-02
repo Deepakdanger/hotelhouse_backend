@@ -1,4 +1,9 @@
 class FavouritesController < ApplicationController
+    def index
+        @fab = current_user.houses
+        render json: @fab
+    end
+
     def create
         @fab = current_user.favourites.new(house_id: params[:house_id])
     
@@ -7,7 +12,7 @@ class FavouritesController < ApplicationController
         else
             render json: { error: 'Not Selected' }
         end
-      end
+    end
     
       def destroy
         fab = Favourite.find_by(id: params[:id], user: current_user, house_id: params[:house_id])
@@ -17,5 +22,5 @@ class FavouritesController < ApplicationController
         else
             render json: { error: 'Not deleted' }
         end
-      end
+    end
 end
