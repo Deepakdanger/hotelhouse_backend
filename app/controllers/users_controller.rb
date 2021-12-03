@@ -6,13 +6,13 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.create(name:params[:name], email:params[:email],password_digest:params[:password_digest])
+        @user = User.create(name:params[:name], email:params[:email],password_digest:params[:password])
         # respond_with(@user)
 
         if @user.save
-            render json: @user, status: :created, location: @user
+            render json: { data:@user, notice: 'User Created' }
         else
-            render json: { error: 'Not Created' }
+            render json: { error: @user.errors.full_messages }
         end
     end
 end

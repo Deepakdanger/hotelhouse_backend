@@ -8,19 +8,19 @@ class FavouritesController < ApplicationController
         @fab = current_user.favourites.new(house_id: params[:house_id])
     
         if @fab.save
-            render json: { done: 'Selected' }, status: :created
+            render json: { done: 'Fav created' }, status: :created
         else
-            render json: { error: 'Not Selected' }
+            render json: { error: 'Fav not created' }
         end
     end
     
       def destroy
-        fab = Favourite.find_by(id: params[:id], user: current_user, house_id: params[:house_id])
+        fab = Favourite.find_by(user: current_user, house_id: params[:house_id])
         if fab
             fab.destroy
             render json: { done: 'Deleted' }
         else
-            render json: { error: 'Not deleted' }
+            render json: { error: 'Fav Not deleted' }
         end
     end
 end

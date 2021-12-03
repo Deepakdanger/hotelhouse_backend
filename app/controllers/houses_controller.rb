@@ -11,7 +11,6 @@ class HousesController < ApplicationController
     else
       @fav=false
     end
-
     render json: { data: @house, status: @fav }
   end
 end
