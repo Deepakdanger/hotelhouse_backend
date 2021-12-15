@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(name: 'deep' , email: 'deep@mail.com' , password: '123456' , password_confirmation: '123456')
-User.create!(name: 'far' , email: 'far@gmail.com' , password: '123456' , password_confirmation: '123456')
+User.create!(name: 'deep' , email: 'deep1@gmail.com' , password: '123456' , password_confirmation: '123456')
+User.create!(name: 'far' , email: 'you@gmail.com' , password: '123456' , password_confirmation: '123456')
 
 
 h1=House.create(title: "Big rom furnished",cost: "50000",location: "U.S",category:"Room")
