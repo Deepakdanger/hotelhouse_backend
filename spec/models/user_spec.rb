@@ -13,4 +13,13 @@ RSpec.describe 'User', type: :model do
     user = User.new(email: 'pop@gmail.com', password: '123456',name: 'pop')
     expect(user.email).to eql('pop@gmail.com')
   end
+
+  it 'can have many events' do
+    a = User.reflect_on_association(:houses)
+    expect(a.macro).to eq(:has_many)
+  end
+  it 'can have many events' do
+    a = User.reflect_on_association(:favourites)
+    expect(a.macro).to eq(:has_many)
+  end
 end
