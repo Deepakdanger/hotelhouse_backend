@@ -33,6 +33,7 @@ group :development, :test do
   gem 'pg', '~> 1.1'
   gem 'database_cleaner'
   gem 'rspec-rails'
+  gem 'capybara'
 end
 
 group :development do
