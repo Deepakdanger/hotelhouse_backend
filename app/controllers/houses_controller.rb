@@ -1,6 +1,5 @@
 class HousesController < ApplicationController
-  skip_before_action :authenticate_request, except: [:show]
-  
+
   def index
     @house=House.all
     render json: @house
