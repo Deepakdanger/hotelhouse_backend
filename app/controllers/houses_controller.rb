@@ -2,7 +2,7 @@ class HousesController < ApplicationController
 
   def index
     @house=House.all
-    render json: current_user
+    render json: @house
   end
 
   def show
