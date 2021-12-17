@@ -1,7 +1,7 @@
 class FavouritesController < ApplicationController
     def index
         @fab = current_user.houses
-        render json: @current_user
+        render json: @fab
     end
 
     def create
