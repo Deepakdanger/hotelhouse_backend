@@ -4,11 +4,11 @@ class JsonWebToken
       payload[:exp] = exp.to_i
       JWT.encode(payload, Rails.application.credentials.read)
     end
- 
+
     def decode(token)
       body = JWT.decode(token, Rails.application.credentials.read)[0]
       HashWithIndifferentAccess.new body
-    rescue
+    rescue StandardError
       nil
     end
   end

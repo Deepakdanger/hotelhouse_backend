@@ -17,7 +17,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 gem 'simple_command'
 
-
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -29,14 +28,10 @@ gem 'rack-cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'pg', '~> 1.1'
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'capybara'
   gem 'database_cleaner'
   gem 'rspec-rails'
-  gem 'capybara'
-end
-
-group :development do
 end
 
 group :production do
@@ -44,4 +39,4 @@ group :production do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

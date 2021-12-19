@@ -10,7 +10,7 @@ RSpec.describe 'User', type: :model do
     expect(user.save).to be(false)
   end
   it 'is saves each field of the user' do
-    user = User.new(email: 'pop@gmail.com', password: '123456',name: 'pop')
+    user = User.new(email: 'pop@gmail.com', password: '123456', name: 'pop')
     expect(user.email).to eql('pop@gmail.com')
   end
 

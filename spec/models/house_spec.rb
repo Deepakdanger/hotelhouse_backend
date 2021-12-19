@@ -6,7 +6,7 @@ RSpec.describe House, type: :model do
     expect(a.macro).to eq(:has_many)
   end
   it 'should belong to the user' do
-    house1 = House.create(title: "Big room Unfurnished",cost: "31000",location: "U.S",category:"Room")
+    house1 = House.create(title: 'Big room Unfurnished', cost: '31000', location: 'U.S', category: 'Room')
     expect(house1.save).to be(true)
   end
 end
