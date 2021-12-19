@@ -46,24 +46,67 @@ All code below are for a terminal.
 ```sh
 cd hotelhouse_backend
 ```
-3. In your terminal, run 
-```sh
-npm install
+3. Then install the needed packages (while skipping any Ruby gems needed only in production):
+
 ```
-4. After changes, run webpack to build production code.
-```sh
-npm run build
-```   
-5. You can also run the following to access the website on `http://localhost:3000` in your local computer.
-```sh
-npm run start
+$ bundle install
 ```
-* Press `Ctrl + c` to exit the `npm run start` session in your terminal.
 
-### Test
+4. Next, setup webpacker configuration
 
-For test run `npm run test`.
+```
+$ rails webpacker:install
+```
 
+5. After that, create and migrate the database:
+
+```
+$ rails db:create
+$ rails db:migrate
+```
+
+6. To run the project on rails local server:
+
+```
+$ rails server
+```
+## Deploying
+
+you’ll need a Heroku account
+
+To deploy this, you’ll need to create a new Heroku application, switch to the right branch, push up the source, run the migrations, and seed the database with sample users:
+
+```
+$ heroku create
+$ git checkout feature
+$ git push heroku feature:master
+$ heroku run rails db:migrate
+$ heroku run rails db:seed
+```
+
+Visiting the URL returned by the original `heroku create` should now show you the sample website running in production. 
+
+## Branches
+
+Simply check out the corresponding branch using `git checkout`:
+
+```
+$ git checkout <branch name>
+```
+## Testing
+
+For test, In Gemfile include:
+
+```
+group :development, :test do
+  gem "database_cleaner"
+  gem "rspec-rails"
+end
+```
+Then, run `bundle install` and run
+```
+$ run rails generate rspec:install
+```
 ## Author
 
 ![Deepak Kumar's GitHub stats](https://github-readme-stats.vercel.app/api?username=Deepakdanger&count_private=true&theme=dark&show_icons=true)
