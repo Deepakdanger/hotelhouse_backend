@@ -5,7 +5,7 @@ class FavouritesController < ApplicationController
   end
 
   def create
-    @fab = current_user.favourites.new(house_id: params[:house_id])
+    @fab = current_user.favourites.new(fav_params)
 
     if @fab.save
       render json: { done: 'Fav created' }, status: :created
@@ -22,5 +22,11 @@ class FavouritesController < ApplicationController
     else
       render json: { error: 'Fav Not deleted' }
     end
+  end
+
+  private
+
+  def fav_params
+    params.require(:favourite).permit(:house_id)
   end
 end
