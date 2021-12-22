@@ -20,7 +20,7 @@ default: &default
 
 
   username: postgres
-  password: Deepak@123
+  password: ENV["PASSWORD_DATABASE"]
   host: localhost
 
   # For details on connection pooling, see Rails configuration guide
