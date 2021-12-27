@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(name: params[:name], email: params[:email], password: params[:password])
+    @user = User.create(user_params)
     # respond_with(@user)
 
     if @user.save
@@ -14,5 +14,11 @@ class UsersController < ApplicationController
     else
       render json: { error: @user.errors.full_messages }
     end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password)
   end
 end
