@@ -1,7 +1,7 @@
 class AuthenticationController < ApplicationController
   skip_before_action :authenticate_request
 
-  def index
+  def create
     command = AuthenticateUser.call(params[:email], params[:password])
 
     if command.success?
