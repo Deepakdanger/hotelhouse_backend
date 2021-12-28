@@ -1,3 +1,7 @@
-Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+Rails.application.routes.draw do  
+  resources :houses, only: [:show, :index]  
+  resources :users, only: [:create, :index]
+  resources :favourites
+  post 'authenticate', to: 'authentication#create'
+  get 'authenticate',to: 'application#current_user'
 end
